@@ -52,6 +52,8 @@ const questions = [{
 
 // --- VALUES
 
+const PRODUCTS_FILE_PATH = '../js/storage/products_long.json';
+
 /**
  * Список ответов пользователя на опрос.
  */
@@ -104,7 +106,7 @@ async function loadProducts(answers) {
     // Генерация фильтра под указанные ответы пользователя на опрос. //
     // ...
     // Обращение к серверу для получения продуктов под результат.
-    const api_url = await fetch('../js/storage/products_long.json');
+    const api_url = await fetch(PRODUCTS_FILE_PATH);
     const api_url_json = await api_url.json();
     // Assignment of the received value of the refinancing rate to another variable in the form of a string.
     return api_url_json;
