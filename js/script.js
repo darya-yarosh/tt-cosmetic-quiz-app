@@ -339,9 +339,9 @@ function createProductPrice(oldPrice, price) {
 function createProductTitle(title) {
     const productTitleElement = document.createElement("p");
     productTitleElement.className = "product-card__title"
-    const productTitleValue = (title.trim()).length <= 44
+    const productTitleValue = (title.trim()).length <= 43
         ? title.trim()
-        : `${title.trim().substring(0, 44)}...`;
+        : `${title.trim().substring(0, 43)}...`;
     productTitleElement.innerHTML = productTitleValue;
     return productTitleElement;
 }
@@ -394,15 +394,15 @@ function drawProductPageNavigation(pageIndex, productPageInfoList) {
         const firstPageLinkElement = document.createElement("a");
         firstPageLinkElement.className = 'pageLink';
         firstPageLinkElement.innerHTML = '1';
-        firstPageLinkElement.onclick = function() {setProductsPage(1)};
+        firstPageLinkElement.onclick = function () { setProductsPage(1) };
         return firstPageLinkElement;
     }
-    
+
     function createLastPageLinkElement() {
         const lastPageLinkElement = document.createElement("a");
         lastPageLinkElement.className = 'pageLink';
         lastPageLinkElement.innerHTML = `${productPageInfoList.length}`;
-        lastPageLinkElement.onclick = function() {setProductsPage(productPageInfoList.length)};
+        lastPageLinkElement.onclick = function () { setProductsPage(productPageInfoList.length) };
         return lastPageLinkElement;
     }
 
@@ -412,7 +412,7 @@ function drawProductPageNavigation(pageIndex, productPageInfoList) {
             const pageLinkElement = document.createElement("a");
             pageLinkElement.className = ind === pageIndex ? 'pageLink pageLink__current' : 'pageLink';
             pageLinkElement.innerHTML = `${ind + 1}`;
-            pageLinkElement.onclick = function() {setProductsPage(ind + 1)};
+            pageLinkElement.onclick = function () { setProductsPage(ind + 1) };
             elements.push(pageLinkElement)
         }
         return elements;
@@ -428,7 +428,7 @@ function drawProductPageNavigation(pageIndex, productPageInfoList) {
         const dotsElement = createDotsElement();
         const lastPageLinkElement = createLastPageLinkElement();
 
-        aroundCurrentPageLinksElement.forEach(element=>productListNavElement.append(element));
+        aroundCurrentPageLinksElement.forEach(element => productListNavElement.append(element));
         productListNavElement.append(dotsElement)
         productListNavElement.append(lastPageLinkElement)
         // -1- 2 3 ... 13
@@ -436,14 +436,14 @@ function drawProductPageNavigation(pageIndex, productPageInfoList) {
         // 1 2 -3- 4 5 ... 13
         // 1 2 3 -4- 5 6 ... 13
         // 1 2 3 4 -5- 6 7 ... 13
-    } else if (productPageInfoList.length - 5 <= pageIndex && endIndex <= productPageInfoList.length+2) {
+    } else if (productPageInfoList.length - 5 <= pageIndex && endIndex <= productPageInfoList.length + 2) {
         const firstPageLinkElement = createFirstPageLinkElement();
         const dotsElement = createDotsElement();
-        const aroundCurrentPageLinksElement = createAroundCurrentPageLinksElement(startIndex, productPageInfoList.length-1);
-        
+        const aroundCurrentPageLinksElement = createAroundCurrentPageLinksElement(startIndex, productPageInfoList.length - 1);
+
         productListNavElement.append(firstPageLinkElement)
         productListNavElement.append(dotsElement)
-        aroundCurrentPageLinksElement.forEach(element=>productListNavElement.append(element));
+        aroundCurrentPageLinksElement.forEach(element => productListNavElement.append(element));
         // 1 ... 7 8 -9- 10 11 12 13
         // 1 ... 8 9 -10- 11 12 13
         // 1 ... 9 10 -11- 12 13
@@ -458,7 +458,7 @@ function drawProductPageNavigation(pageIndex, productPageInfoList) {
 
         productListNavElement.append(firstPageLinkElement)
         productListNavElement.append(dotsLeftElement)
-        aroundCurrentPageLinksElement.forEach(element=>productListNavElement.append(element));
+        aroundCurrentPageLinksElement.forEach(element => productListNavElement.append(element));
         productListNavElement.append(dotsRightElement)
         productListNavElement.append(lastPageLinkElement)
         // 1 ... 4 5 -6- 7 8 ... 13

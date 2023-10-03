@@ -2,6 +2,7 @@ html {
     height: 100%;
     width: 100%;
 }
+
 body {
     display: grid;
     grid-template-rows: 1fr 6fr;
@@ -9,8 +10,8 @@ body {
     justify-content: center;
     width: fit-content;
     max-height: 100vh;
-    margin: 0px;
-    padding: 50px;
+    margin: auto;
+    padding: 50px 0px;
 
     font-family: Inter, sans-serif;
     font-style: normal;
@@ -57,6 +58,7 @@ h1 {
     grid-gap: 30px;
     padding: 35px;
     height: 432px;
+    width: 868px;
     border-radius: 10px;
     background: #DDF3FF;
 }
@@ -70,7 +72,7 @@ h1 {
 .quiz-card__question {
     align-self: end;
     margin-top: 40px;
-    margin:0px;
+    margin: 0px;
     font-weight: 700;
     font-size: 20px;
 }
@@ -135,7 +137,12 @@ h1 {
 
 .quiz-card__nav {
     display: flex;
+    align-items: baseline;
     gap: 10px;
+}
+
+.quiz-card__nav p {
+    margin: 0;
 }
 
 .button {
@@ -198,8 +205,6 @@ h1 {
 }
 
 .alert__text {
-    align-self: center;
-
     font-weight: 400;
     font-size: 15px;
 
@@ -272,6 +277,9 @@ h1 {
     height: 342px;
 
     margin: 0;
+    display: grid;
+    grid-template-rows: 6fr 4fr 1fr;
+    padding: 2px;
 }
 
 .product-card__favourite-button {
@@ -329,8 +337,170 @@ h1 {
 }
 
 @media (max-width: 1024px) {
+    body {
+        padding: 50px 30px;
+    }
+
+    .page__header {
+        width: inherit;
+        text-wrap: balance;
+    }
+
+    .page__header__title {
+        text-wrap: balance;
+    }
+
+    .page__header__desc {
+        width: inherit;
+        text-wrap: balance;
+    }
+
+    .quiz-card {
+        width: inherit;
+    }
+
     .product-list {
         grid-template-columns: 1fr 1fr 1fr;
-        overflow: auto;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+
+    .product-card {
+        width: 200px;
+    }
+
+    .product-card__favourite-button {
+        margin: 10px;
+        height: 25px;
+        width: 25px;
+    }
+
+    .product-card__favourite-button svg {
+        width: inherit;
+        height: inherit;
+    }
+
+    .product-card__image {
+        height: 200px;
+        width: 200px;
     }
 }
+
+@media (max-width: 768px) {
+    body {
+        margin: 0px;
+        width: initial;
+        padding: 50px 0px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page__header {
+        width: 410px;
+    }
+
+    .page__header__title {
+        font-size: 32px;
+    }
+
+    .page__header__desc {
+        font-size: 18px;
+    }
+
+    .quiz-card {
+        width: 410px;
+        width: 340px;
+    }
+
+    .page__content {
+        width: 410px;
+    }
+
+    .product-list {
+        margin: 0px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        max-height: 80vh;
+        max-height: 65vh;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        grid-row-gap: 15px;
+        grid-column-gap: 15px;
+        padding-bottom: 20px;
+    }
+
+    .product-card {
+        height: 275px;
+        width: 170px;
+    }
+
+    .product-card__image {
+        height: 170px;
+        width: 170px;
+    }
+
+    .product-card__title {
+        font-size: 12px;
+    }
+
+    .product-card__price {
+        font-size: 18px;
+    }
+
+    .product-card__old-price {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 30px 0px;
+    }
+
+    .page__header {
+        width: 340px;
+    }
+
+    .quiz-card {
+        width: 270px;
+        height: 340px;
+        grid-gap: 20px;
+    }
+
+    .quiz-card__answer {
+        text-wrap: balance;
+    }
+
+    .quiz-card__question {
+        font-size: 18px;
+    }
+
+    .page__content {
+        width: 340px;
+    }
+
+    .product-card {
+        height: 240px;
+        width: 150px;
+    }
+
+    .product-card__favourite-button {
+        margin: 10px;
+        height: 25px;
+        width: 25px;
+    }
+
+    .product-card__favourite-button svg {
+        width: inherit;
+        height: inherit;
+    }
+
+    .product-card__image {
+        height: 150px;
+        width: 150px;
+    }
+}
+
+@media (max-width: 320px) {}
